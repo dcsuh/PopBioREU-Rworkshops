@@ -78,12 +78,63 @@ The bottom quarter of the projected screen is hard to see with the desk monitors
 
 We have requested that students use the computers provided to avoid installation issues with R.
 
+# Coordinator Guide 
 
-# Provided Materials 
+The workshop coordinator is respondsible for scheduling the workshops which includes booking the appropriate computer lab and arranging instructors. In the past, different instructors were choosen as a way to expose the REU participants to more researchers, and increase the pool of people the participants could approach for help. Normally, there is only one instructor but it is very useful to have an additional person to float around to help during the workshop. This additional person is especially helpful during workshop 3. 
 
-I have developed a suite of materials for the workshops for the instructors and student. Students will be given the exercise materials, readings, and lecture slides before the workshop. 
+The workshop has been designed to minimize upfront time investment for instructors but they need to update the about me slide in their workshop slides preferably two business days prior to the workshop. They are welcome to make changes, but make sure the changes do not break any up or down stream activities. Many exercises call back or set up future activities. 
 
-## Lecture: 
+## Suggested Timeline
+
+One month prior to series start: 
+* Book instructors and space. 
+* Review `Readings/Readings.html` for broken links, outdated information, etc.
+* Make changes to the curriculum as needed.
+
+One week prior to program start: 
+* Send out welcome email to REU participants with the `Readings.html` attached. See the REU gmail for previous emails. 
+* Print out and collate materials into folders for participants 
+** color cheatsheets for each participant. In the past this included ggplot, dplyr, and Rmarkdown. 
+** R project worksheet (google doc) assigned at the end of workshop 2. 
+
+One/Two days prior to workshop:
+* Check in with scheduled instructor, confirm slides and exercise materials on github are ready to by distributed. 
+* Email reminder to participants including the zipped file for that particular workshop. 
+
+One/Two days after the workshop:
+* Debrief with instructor. This could include course content (what worked, what didn't), class climate, participation, other issues. 
+
+At the end of the series:
+* Collate feedback from instructors and your observations. 
+* Make curriculum changes, update readme files, etc. 
+
+## Continuity Between Workshops
+
+Exercises can carry over between workshops. It is your respondsibility to help with that process. 
+
+* Workshop 1 and 2:
+Workshop 1 ends with a self-guided exploration of a data set. Each group is asked to email the `.Rmd` of their exploration. Ensure that the email address listed in the `W1_Exercise.Rmd` is correct. These should then be emailed back to the students with the workshop 2 materials. Workshop 2 will start with the groups working with a different group's `.Rmd` 
+
+* Workshop 2 and 4:
+Workshop 2 ends with a R project worksheet assignment that should have been distributed physically with the cheatsheet packet, and electronically as a link in the reading. Students need to bring the completed (electronic or physical) worksheet with them for workshop 4. 
+
+# Instructor Guide
+
+The workshop series was designed for high quality instruction with minimal prep on the instructors' end. 
+
+There is a lot of support material to help you. I suggest looking over it in this order:
+* Workshop overview above. This will give you a sense of how the workshops build on eachother. 
+* Skimming all of the `Readings.html`. This will be sent out as a single file prior to the workshop series. The REU participants are expected to read the appropriate section prior to the workshop. 
+* Your workshop teaching notes below. 
+* Your workshop folder: readme, slides, exercises, then all other information. The entire folder will be emailed to the REU participants prior to the workshop.  
+
+If you have questions, please follow up with the program coordinator. 
+
+## Provided Materials 
+
+I have developed a suite of materials for the workshops for the instructors and student. Students will be given the exercise materials, readings, and lecture slides before the workshop. **Complete all edits to these materials at least two business days prior to your workshop** 
+
+### Lecture: 
 
 You've been provided HTML slides that will help you introduce the topic. There are some slides that will require edits from you (ie. contact information, how you use R in your research). Specific items to be edited are noted with `[INSERT INFO]' notation. 
 
@@ -92,16 +143,21 @@ https://support.rstudio.com/hc/en-us/articles/200486468-Authoring-R-Presentation
 
 Feel free to edit the material as needed, but please still cover the information since each workshop will build on previously covered skills. 
 
-## Exercises:
+### Exercises:
 
 Students will be given templates for the exercises in a `exercise.Rmd` document. There is a complementary `exercise_soln.Rmd` file as well. In some cases, it would be best to type along in the student version while other times it might be useful to have the code already completed. Using completed code is a time saver for longer tasks since it will free you to walk the room instead. 
 
 Any data required for the exercises will also be included in a data folder. In an effort to reinforce best practices, materials will be given to students in organized directories using .Rproj 
 
-## Readings and videos:
+### Readings with videos:
 
-In some cases students will given short readings to be done before the workshop. I have also created a collection of videos using edpuzzle.com relating to topics for each workshop. Students will be able to access the videos at any point in the series.  
+Each workshop has a short reading to be completed prior to the workshop. Based on participant feedback, all reading are disributed a week prior to the start of the workshop series. If you would like to make changes to the reading, please work with the coordinator. 
 
+## Setting the climate 
+
+REU participants tend to either have either a lot or no computational programming experience. You will never be able to maintain engagement without acknowledging these two groups. Those with no experience can feel lost, while those with experience become bored. Either way you end up with a group of withdrawn students.  This course tries to explicitly address this issue by calling on those with experience to help their neighboors, and those without experience to ask questions. Both groups need to be invested to have a successful workshop. 
+
+Chat with the other instructors and the coordinator about the group dynamics. Some years the dynamics emerge organically, other years need a bit more structure ranging from prompting to pre-defined groups. 
 
 # Introduction to R Teaching Notes
 
@@ -136,7 +192,7 @@ Additional files for instructor
 
 This is the first workshop in the series, and so it is important to start by clearly motivating the workshops and setting the tone for what is to come. The latest iteration of this series has been modified and reorganized to clearly communicate the value of R in scientific research. These modifications include:
 
-1. John will give an intro pep talk at the first workshop about the value of R
+1. If possible, the REU PI will give an intro pep talk at the first workshop about the value of R
 2. The first workshop jumps right in with tidyverse data manipulation and plotting.
 3. Researchers leading the workshops will be asked to explain how they use R in their research.
 4. The first exercise in a workshop will have a review component, connect the concepts from the last workshop to the next.
