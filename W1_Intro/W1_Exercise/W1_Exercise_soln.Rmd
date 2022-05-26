@@ -1,7 +1,7 @@
 ---
 title: "W1_Exercise Solutions"
-author: "PopBio REU 2019" 
-date:  "Reni Kaul"
+author:  
+date:  
 output: 
   html_document: 
     toc: true
@@ -413,7 +413,7 @@ As a group:
 4. When you are finished:
   - save the file with your group number (ie. `W1_Group1.Rmd`)  
   - Knit the `.Rmd` (short for RMarkdown) to HTML using the Knit button. Open the HTML, what does it look like? We will explore this more during the next workshop. 
-  - email the `.Rmd` to your group members and Ania (majewska@uga.edu ). 
+  - email the `.Rmd` to your group members and the instructor. 
 
 
 

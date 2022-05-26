@@ -15,7 +15,6 @@ chooseCRANmirror(graphics=FALSE, ind=1)
 
 Why is R programming a useful skill?
 ========================================================
-(John Drake)
 
 
 About Myself
@@ -114,6 +113,8 @@ RStudio
 Let's open today's exercise by clicking on W1_Exercise.Rproj in the W1_Exercise folder. 
 
 RStudio should automatically open from here. 
+
+* Extract files from the zipped email attachment
 
 RStudio 
 ========================================================
