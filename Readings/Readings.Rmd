@@ -1,7 +1,7 @@
 ---
-title: "Workshop Reading Materials"
-author: "Reni Kaul"
-date: "5/13/2019"
+title: "PopBio REU R Workshop Reading Materials"
+author: ""
+date: 
 output: 
   html_document:
     toc: true
@@ -11,6 +11,8 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+#required libraries
+#devtools::install_github("hadley/emo")
 ```
 
 # Introduction to the series
@@ -97,9 +99,9 @@ The workspace/ history window (upper right): This window has two tabs. Workspace
 
 RStudio has developed different file types that allow the user to mix different types of programming and natural language together. The most common file type used is `.Rmd`, which stands for R markdown. This file type can accept `R` code, html markdown, and latex to produce html, pdf, word, and presentation files. The exercises, readings and slides were all made using `.Rmd` files. The final document is produced by compiling or knitting the `.Rmd`. 
 
-If you have never used a markdown language before check out the [R Markdown cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) for tips on setting heading, italics, bold, etc. 
+If you have never used a markdown language before check out the [R Markdown cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rmarkdown.pdf) for tips on setting heading, italics, bold, etc. 
 
-Most of the `R` code in a `.Rmd` needs to be within a code chunk which starts with three back ticks followed by a lower case r within curly brackets (```{r}). The code chunk ends with three back ticks. There are other options that can be included in the curly bracket following the lower case r (See the [cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)). 
+Most of the `R` code in a `.Rmd` needs to be within a code chunk which starts with three back ticks followed by a lower case r within curly brackets (```{r}). The code chunk ends with three back ticks. There are other options that can be included in the curly bracket following the lower case r (See the [cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rmarkdown.pdf)). 
 
 The basic `R` code chunk can be created by using *Cmd+Alt+i* or *Ctrl+Alt+i* on Windows.
 
@@ -147,7 +149,9 @@ R Studio has a more detailed [help guide](https://www.r-project.org/help.html).
 
 When exploring a new dataset, especially in the workshops, one of the first steps is calculating [descriptive statistics](https://en.wikipedia.org/wiki/Descriptive_statistics). Calculating the mean, standard deviation, and quantiles can be quickly completed using base `R` functions (ie.`mean()`, `sd()`, `summary()`). What other information might you want to know when exploring new data?
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/MRqtXL2WX2M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+![](https://youtu.be/MRqtXL2WX2M)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MRqtXL2WX2M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen data-external= "1" ></iframe>
 
 ### Inferential Statistics 
 
@@ -207,7 +211,7 @@ This conclusion is underscored by the p-value, in this case $p=0.2739$. The p-va
 
 The video covers the calculations that are needed to derive the confidence interval, and p-value. 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/pTmLQvMM-1M" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pTmLQvMM-1M" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen data-external= "1" ></iframe>
 
 <br>
 <br>
@@ -247,7 +251,7 @@ plot(x3, main=paste('rho=',round((cor(x3[,1],x3[,2])),2)))
 ```
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ugd4k3dC_8Y" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ugd4k3dC_8Y" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen data-external= "1" ></iframe>
 
 **Note** The default measure of association returned by `cor.test()` is called *Pearson's correlation coefficient*. However, there are actually several different conceptions of correlation which differ in technical ways. Another of these is called *Spearman's rank-order coefficient* and may be calculated by using the argument `method='spearman'`.
 
@@ -255,7 +259,7 @@ plot(x3, main=paste('rho=',round((cor(x3[,1],x3[,2])),2)))
 
 Linear regression is closely related to Spearman's correlation and also considers the relationship between two variables. Specifically, linear regression assumes that the relationship between two quantities can be represented by a line (which is expressed with the equation $y=mx_i+b$) and that the failure of the data to fall exactly on a line is because of some variation or measurement error in the variable $y$ such that the $i^{th}$ observation $y_i$ can be expressed as $y_i=mx+b+\epsilon_i$, where $\epsilon_i$ is the measurement error. Now, the problem is to find the values of $m$ and $b$ (the slope and intercept) such that the total error is minimized in some sense and possibly also to test hypothesis (for instance that $m=0$ or $b=0$). In ordinary (least squares) regression, we seek to minimize the *sum of squared errors*: $\Sigma_i (y_i-(mx_i+b))^2$. Since this is a *linear model*, the best fitting values of $m$ and $b$, as well as a lot of other information, may be obtained using the function `lm()`.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/zPG4NjIkCjc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zPG4NjIkCjc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen data-external= "1" ></iframe>
 
 We will return to an application of linear regressions later in the series. 
 
@@ -332,7 +336,7 @@ When you start a new analysis, start a new Project by:
 4. Name your new directory. 
 5. Use the "browse" button to choose the directory location. 
 
-<iframe width="660" height="415" src="https://www.youtube.com/embed/hKoSJGWnFFA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="660" height="415" src="https://www.youtube.com/embed/hKoSJGWnFFA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen data-external= "1" ></iframe>
 
 When you're finished working on the project for the day, close the project ("File" -> "Close Project"). When you open the project up again, all the documents you were working on will automatically re-open. 
 
@@ -412,7 +416,7 @@ produces
     * Sub-list item
 
 
-For more information on syntax see [R Markdown document guide](http://rmarkdown.rstudio.com/authoring_basics.html) or the [R Markdown cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf).
+For more information on syntax see [R Markdown document guide](http://rmarkdown.rstudio.com/authoring_basics.html) or the [R Markdown cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rmarkdown.pdf).
 
 The `.Rmd` can also compile HTML code for more extensive formatting needs (i.e. text color).
 
@@ -533,12 +537,12 @@ Control structures allow you to control if, when, or how often code is executed.
 
 These control sturctures are much more common when using base `R` rather than `tidyverse`, but you may come across a problem that can be solved with the above statements. We will come back to `for` statements in workshop 3. 
 
-### Apply Family Functions
+### The Apply Family of Functions
 
 Apply functions are used to do bulk calculations. Suppose we would like to determine the mean, min, and max. value of every column in a large data set. We could do this one by one using a control structure for each calculation, or all at once using an apply statement. In fact, much of the `tidyverse` is based on using the apply function approach. We won't explicitly cover apply functions in the workshop, but you might come across a need for them in the future. This is especially true if you are working in base `R`. 
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/f0U74ZvLfQo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/f0U74ZvLfQo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen data-external= "1" ></iframe>
 
 
 If you'd like a more indepth explaination of control structures vs apply statements check out this [tutorial](https://nicercode.github.io/guides/repeating-things/). 
@@ -547,14 +551,14 @@ If you'd like a more indepth explaination of control structures vs apply stateme
 
 You've already taken advantage of functions that are part of the `tidyverse` package. However, `R` also allows the user to create their own functions. The video below introduces the basic structure of a function, along with the flexiblity of the outputs. Don't worry if the different output options are unfamiliar. I just want you to have an idea of the different possibilities. You will have a chance to practice writing functions in this workshop. 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/i2VH5jIL76Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/i2VH5jIL76Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen data-external= "1" ></iframe>
 
 <!-- Data camp functions 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/M4fMccWy5lU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/M4fMccWy5lU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen data-external= "1" ></iframe> -->
 
 ## 4. Homework for workshop 4
 
-The REU program ends with a poster session where you present the work you've completed this summer. To help you reach this point, and help us understand how you're using `R` we would also like you to submit an `R` project containing any relevant data and a .Rmd file that follows the reproducible research practices outlined above. We will spend a part of the 4th workshop developing an outline based on a [template](https://github.com/renikaul/R_workshopsREU/blob/master/RMD/Template.Rmd) for you to fill in as your work progresses. To make the most out of that time, and to help you prep for the first breakout session (more info coming via email) we've created a worksheet to guide your thought process. If you're struggling to answer the questions, make sure to chat with your mentors! Please bring the completed [worksheet](https://docs.google.com/document/d/1ENacpY9VF7qzh-4OMCeKGMfdZ_aq_nL_mRW9yWoAS5c/edit?usp=sharing) to workshop 4.
+The REU program ends with a poster session where you present the work you've completed this summer. To help you reach this point, and help us understand how you're using `R` we would also like you to submit an `R` project containing any relevant data and a .Rmd file that follows the reproducible research practices outlined above. We will spend a part of the 4th workshop developing an outline based on a [template](https://github.com/DrakeLab/PopBioREU-Rworkshops/blob/master/RMD/Template.Rmd) for you to fill in as your work progresses. To make the most out of that time, and to help you prep for the first breakout session (more info coming via email) we've created a worksheet to guide your thought process. If you're struggling to answer the questions, make sure to chat with your mentors! Please bring the completed [worksheet](https://docs.google.com/document/d/1ENacpY9VF7qzh-4OMCeKGMfdZ_aq_nL_mRW9yWoAS5c/edit?usp=sharing) to workshop 4.
 
 ---
 
@@ -612,7 +616,7 @@ There are innumerable things to keep in mind when thinking about models. Some ar
 <a id=recursive_eq></a>
 Mathematical models can be deterministic or stochastic. A *deterministic model* assumes that the future is entirely predicted by the model. A *stochastic model* assumes that random events affect the system, in which case the model can only predict the probability of various outcomes in the future.
 
-A key decision when developing a methematical model is how to treat time.
+A key decision when developing a mathematical model is how to treat time.
 
 *Discrete time models* track changes to variables in discrete time steps.
 *Continuous time models* allow variables to change at any point in time (i.e., time is represented by a continuous axis).
@@ -727,7 +731,7 @@ The plausibility of an outbreak or a pathogen's ability to invade a new host pop
 
 **What might be a 'threshold' value of $R_0$?**  
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/jKUGZvW99os?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jKUGZvW99os?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen data-external= "1" ></iframe>
 
 ### Deriving R nought from time series data
 
@@ -1187,7 +1191,7 @@ One product that we ask you to produce to wrap up your REU experience is a R pro
 3. A .rmd file that follows the template
 4. A compiled html of the .rmd file
 
-Please send the zipped project directory to infectious.disease.reu@gmail.com by **5pm Wednesday, July 17th**. 
+Please send the zipped project directory to infectious.disease.reu@gmail.com by the poster printing submission deadline. 
 
 ---
 
