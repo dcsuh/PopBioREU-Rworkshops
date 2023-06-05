@@ -1,7 +1,7 @@
 ---
 title: "W3_Exercise_soln"
-author: "PopBio REU 2018"
-date: "Reni Kaul"
+author: "PopBio REU 2018, Reni Kaul; edited by Daniel Suh"
+date: "6/4/2018; last edited 6/5/2023"
 output: 
   html_document:
     toc: true
@@ -27,7 +27,7 @@ library(tidyverse)
 ```
  
  
-Now that the library is loaded, look at the manual page for lsoda. Interpret the first 4 arguements.
+Now that the library is loaded, look at the manual page for lsoda. Interpret the first 4 arguments.
 
 - y 
 - times
@@ -69,10 +69,10 @@ ExponentialGrowth <- function(t, y, params) {
 
 ```
 
-## Other arguements for lsoda
+## Other arguments for lsoda
 
 **Parameters**
-So now that we have the model written, let's tackle the other arguements starting with `params`. 
+So now that we have the model written, let's tackle the other arguments starting with `params`. 
 
 What are the parameters in the exponential growth model? What are they called in the `ExponentialGrowth()` function? 
 
@@ -85,7 +85,7 @@ parameters <- c(r = 0.75)
 
 **Time**
 
-Working backwards the next arguement for `lsoda()` is `times`. The solver needs to know when to report the numerical solution for the ODE. Let's create a vector called `t.vector` starting at 0.1 and increases by 0.1 up to 1. 
+Working backwards the next argument for `lsoda()` is `times`. The solver needs to know when to report the numerical solution for the ODE. Let's create a vector called `t.vector` starting at 0.1 and increases by 0.1 up to 1. 
 
 *Remember: We can save time when making patterned vectors by using* `seq()` *function*
 ```{r time}
@@ -103,7 +103,7 @@ y0 <- c(N0 = 10)
 
 ## Run a simulation
 
-We now have a function called `ExponentialGrowth()` that describes the exponential growth model the 3 required arguements for the `lsoda()` function. Let's simulate the population and save it as an object called `sim1` 
+We now have a function called `ExponentialGrowth()` that describes the exponential growth model the 3 required arguments for the `lsoda()` function. Let's simulate the population and save it as an object called `sim1` 
 
 ```{r exp population simulation}
 sim1 <- lsoda(y = y0, times = t.vector, func = ExponentialGrowth, parms = parameters)
@@ -112,7 +112,7 @@ sim1 <- lsoda(y = y0, times = t.vector, func = ExponentialGrowth, parms = parame
 What is the population size at the end of the simulation? How would you expect it to change if the growth rate was decreased? Test it out by creating another simulated population named `sim2` with this new growth rate. 
 
 ```{r exp population sinulation low growth}
-parameters2 <- c(r = 0.5) # create a new vector for the params arguement
+parameters2 <- c(r = 0.5) # create a new vector for the params argument
 sim2 <- lsoda(y = y0, times = t.vector, func = ExponentialGrowth, parms = parameters2)
 ```
 
@@ -303,7 +303,7 @@ ggplot(data = SIRsim, aes( x = time, y = I)) +
 
 It would be useful to see how the S, and R class are changing over time too. We could add layers with S and R as x values in the `aes`thetic but there is a faster way. 
 
-The data is currently in wide format (ie. S, I, and R at a given time are all in the same row). We can convert `SIRsim` to long format using the `gather()` before plotting. The long format data is preferable for data analysis in `R`. 
+The data is currently in wide format (ie. S, I, and R at a given time are all in the same row). We can convert `SIRsim` to long format using the `pivot_longer()` before plotting. The long format data is preferable for data analysis in `R`. If you are already familiar with `R`, then you may have used `gather()` instead of `pivot_longer()`. We recommend switching to `pivot_longer` because it easier to use and more featureful.
 
 ![](figs/gather_values.png)
 
@@ -312,12 +312,12 @@ Long format has a single observation per row. See this [blog post](
 https://sebastiansauerblog.wordpress.com/2016/07/13/long-vs-wide-format-and-gather/
 ) for more details. 
 
-Explore the `gather()` function. Once you have a handle on the `gather()` function make a new long format `longSIRsim` object and plot. 
+Explore the `pivot_longer()` function. Once you have a handle on the `pivot_longer()` function make a new long format `longSIRsim` object and plot. 
 
 ```{r long format SIR}
 
 longSIRsim <- SIRsim %>% 
-              gather(key = state, value = value, S:R)
+              pivot_longer(cols = S:R, names_to = "state", values_to = "value")
 
 ggplot(data = longSIRsim, aes(time, value, color = state)) + 
     geom_line()
@@ -326,12 +326,12 @@ ggplot(data = longSIRsim, aes(time, value, color = state)) +
 
 
 *Note:*
- Tidyverse pipes can feed directly into ggplot. Here, the `data` arguement for `ggplot()` is not needed, the output of the pipe from the line above is automatically used. For consistency, you can use a `.` (period) for the `data` arguement but it isn't required. 
+ Tidyverse pipes can feed directly into ggplot. Here, the `data` argument for `ggplot()` is not needed, the output of the pipe from the line above is automatically used. For consistency, you can use a `.` (period) for the `data` argument but it isn't required. 
 
 ```{r fast SIR plot}
 
 SIRsim %>% 
-  gather(key = state, value = value, S:R) %>%  # the gathered data is fed directly into ggplot without creating a secondary object. 
+  pivot_longer(cols = S:R, names_to = "state", values_to = "value") %>%  # the gathered data is fed directly into ggplot without creating a secondary object. 
   ggplot(data = ., aes(time, value, color = state)) + 
     geom_line()
 
@@ -380,7 +380,7 @@ SIRsim <- as.data.frame(lsoda(y = xstart, times = t.SIR, func = DensityDepSIR, p
 
 SIRsim %>%
   bind_rows(betaSIRsim, gammaSIRsim, ratioSIRsim) %>%
-  gather(key = state, value = value, S:R) %>%
+  pivot_longer(cols = S:R, names_to = "state", values_to = "value") %>%
   ggplot( aes(time, value, color = state)) + 
   geom_line() +
   facet_grid(. ~ sim) + 
