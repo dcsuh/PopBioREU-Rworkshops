@@ -27,7 +27,7 @@ library(tidyverse)
 ```
  
  
-Now that the library is loaded, look at the manual page for lsoda. Interpret the first 4 arguements.
+Now that the library is loaded, look at the manual page for lsoda. Interpret the first 4 arguments.
 
 - y 
 - times
@@ -72,10 +72,10 @@ ExponentialGrowth <- function(t, y, params) {
 
 ```
 
-## Other arguements for lsoda
+## Other arguments for lsoda
 
 **Parameters**
-So now that we have the model written, let's tackle the other arguements starting with `params`. 
+So now that we have the model written, let's tackle the other arguments starting with `params`. 
 
 What are the parameters in the exponential growth model? What are they called in the `ExponentialGrowth()` function? 
 
@@ -88,7 +88,7 @@ parameters <- c(r = 0.75)
 
 **Time**
 
-Working backwards the next arguement for `lsoda()` is `times`. The solver needs to know when to report the numerical solution for the ODE. Let's create a vector called `t.vector` starting at 0.1 and increases by 0.1 up to 1. 
+Working backwards the next argument for `lsoda()` is `times`. The solver needs to know when to report the numerical solution for the ODE. Let's create a vector called `t.vector` starting at 0.1 and increases by 0.1 up to 1. 
 
 *Remember: We can save time when making patterned vectors by using* `seq()` *function. If you are having trouble figuring out how to use the function you can view the help file with* `?seq`
 ```{r time}
@@ -106,18 +106,18 @@ The initial condition of the state variable(s) is set by a named vector, just li
 
 ## Run a simulation
 
-We now have a function called `ExponentialGrowth()` that describes the exponential growth model the 3 required arguements for the `lsoda()` function. Let's simulate the population and save it as an object called `sim1` 
+We now have a function called `ExponentialGrowth()` that describes the exponential growth model the 3 required arguments for the `lsoda()` function. Let's simulate the population and save it as an object called `sim1` 
 
 ```{r exp population simulation}
-##sim1 <- lsoda(y = y0, times = , func = , parms = ) #complete the arguements
+##sim1 <- lsoda(y = y0, times = , func = , parms = ) #complete the arguments
 ```
 
 What is the population size at the end of the simulation? How would you expect it to change if the growth rate was decreased? Test it out by creating another simulated population named `sim2` with this new growth rate. 
 
 ```{r exp population sinulation low growth}
-##parameters2 <- c() # create a new vector for the params arguement
+##parameters2 <- c() # create a new vector for the params argument
 
-##sim2 <- lsoda(y = y0, ) # complete the arguements 
+##sim2 <- lsoda(y = y0, ) # complete the arguments 
 ```
 
 ## Plot the simulation 
@@ -338,7 +338,7 @@ How do the column names change between `SIRsim` and `longSIRsim`?
 
 
 *Note:*
- Tidyverse pipes can feed directly into ggplot. Here, the `data` arguement for `ggplot()` is not needed, the output of the pipe from the line above is automatically used. For consistency, you can use a `.` (period) for the `data` arguement but it isn't required. 
+ Tidyverse pipes can feed directly into ggplot. Here, the `data` argument for `ggplot()` is not needed, the output of the pipe from the line above is automatically used. For consistency, you can use a `.` (period) for the `data` argument but it isn't required. 
 
 ```{r fast SIR plot}
 
