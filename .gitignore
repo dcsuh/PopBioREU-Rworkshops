@@ -1,6 +1,6 @@
 # Other files
 *_cache/*
-.DS_Store
+*.DS_Store
 */.DS_Store
 Icon*
 
