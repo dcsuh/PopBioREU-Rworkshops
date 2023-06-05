@@ -1,7 +1,7 @@
 ---
 title: "Simulating infectious diseases with R"
-author: "PopBio REU 2018"
-date: "Reni Kaul"
+author: "PopBio REU 2018, Reni Kaul; edited by Daniel Suh"
+date: "6/4/2018; last edited 6/5/2023"
 output: 
   html_document:
     toc: true
@@ -40,30 +40,30 @@ Modeling can help us answer the following basic questions arising from
 the epidemic:
 
 -   How many children will become infected through the course of the
-    epidemic?\
+    epidemic?
 -   How long will the epidemic last?
 -   When will the number of cases start decreasing?
 -   Why are the number of cases decreasing?
--   What lead to an epidemic?
+-   What leads to an epidemic?
 
 If we are able to predict the epidemic curve with a model, we can also
 evaluate the effects of different control measures. We can answer
 questions such as, is it better to randomly vaccinate children in the
-school, or target a particular age group?
+school or target a particular age group?
 
 # What is a mathematical model?
 
 We distinguish between mathematical and statistical models.
-*Mathematical* or *dynamical* models are abstract models that uses
-mathematical language to describe the behavior of a system. The
-epidemiological processes (e.g., infection of susceptible individuals,
-recovery of infected individuals) are represented by equations.
-*Statistical* models attempt to describe relationships between observed
-quantities and independent variables. Otto and Day [^1] give a nice
-overview of the differences between these two approaches. Models can
-help us to understand nature and to make predictions. In this workshop,
-we will show you how to formulate a basic mathematical model of an
-epidemic and how to solve this model in R.
+*Mathematical* or *dynamical* models are abstract models that use
+mathematical language to describe the behavior of a system. In an
+epidemiological model, the epidemiological processes (e.g., infection of
+susceptible individuals, recovery of infected individuals) are
+represented by equations. *Statistical* models attempt to describe
+relationships between dependent and independent variables. Otto and Day
+[^1] give a nice overview of the differences between these two
+approaches. Models can help us to understand nature and to make
+predictions. In this workshop, we will show you how to formulate a basic
+mathematical model of an epidemic and how to solve this model in R.
 
 [^1]: Otto, S. P. and Day, T. A Biologists Guide to Mathematical
     Modeling in Ecology and Evolution. Princeton University Press,
@@ -84,8 +84,7 @@ simplify the world.
 There are innumerable things to keep in mind when thinking about models.
 Some are, in no specific order:
 
--   All models are wrong, but some are useful (attributed to George
-    Box)\
+-   All models are wrong, but some are useful (attributed to George Box)
 -   There is no 'perfect' model
 -   There are often trade-offs between model realism and generality
 -   Models should have a purpose - you should always be able to say
@@ -94,11 +93,11 @@ Some are, in no specific order:
 
 ## Model types
 
-Mathematical models can be deterministic or stochastic. A *deterministic
-model* assumes that the future is entirely predicted by the model. A
-*stochastic model* assumes that random events affect the system, in
-which case the model can only predict the probability of various
-outcomes in the future.
+Mathematical models can be *deterministic* or *stochastic*. A
+*deterministic model* assumes that the future is entirely predicted by
+the model. A *stochastic model* assumes that random events affect the
+system, in which case the model can only predict the probability of
+various outcomes in the future.
 
 A key decision when developing a model is how to treat time.
 
@@ -113,7 +112,7 @@ error to the results. Another justification for their use is that it is
 typically easier mathematically to treat variables as continuous --
 calculus can be used to analyse the model.
 
-Typically, discrete time models are written as *recursion equations*
+Typically, discrete time models are written as *difference equations*
 that describe the value of variables at the next time step in terms of a
 function of it at the current time step, e.g., $$\begin{aligned}
 N_{t+1} = \text{``some function of }N_t\text{"},
@@ -150,7 +149,7 @@ We can use this equation to infer the value of $N(t)$, i.e., to obtain a
 *solution* of the differential equation. A solution is a function that
 satisfies the differential equation. If we can find this function, then
 we have *solved* the differential equation. Solving a differential
-equation allows us to deduce *long-term behavior* -- to answer \`\`what
+equation allows us to deduce *long-term behavior* -- to answer "what
 will happen in the future?".
 
 # A mathematical model of population growth
