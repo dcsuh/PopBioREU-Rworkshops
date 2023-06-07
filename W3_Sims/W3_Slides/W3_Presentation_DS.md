@@ -73,8 +73,6 @@ left: 50%
 ***
 What is (are) the
 
-- independent variable?
-- dependent variable?
 - state variable?
 - parameter(s)? 
 
@@ -238,7 +236,7 @@ Lessons learned: Simulating an SIR model
 - state values can be modeled as proportion of total population
 - `ggplot()` expects data as a data.frame class object
 - Tidyverse pipes (`%>%`) can be fed into `ggplot()`
-- `gather()` converts wide data to long format
+- `pivot_longer()` converts wide data to long format
 - ...
 
 
