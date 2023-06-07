@@ -17,15 +17,17 @@ opts_chunk$set(cache = FALSE, eval = FALSE)
 About Myself
 ========================================================
 
- - My research interest is transmission of generalist parasites
+ - My research interest is the transmission of generalist parasites
  - I use `R` in my research to:
    + organize data 
    + run simulations
    + perform statistical analysis
- - I mostly work in freshwater ponds 
+   + make websites
+   + write manuscripts
+ - I mostly work with mathematical models, large scale host-parasites association databases, and the daphnia model system.
  - My contact info is daniel.suh@uga.edu
  
-Review of past workshops 
+Outline 
 ========================================================
 **You should be able to...**
 
@@ -35,17 +37,15 @@ Review of past workshops
 - calculate summary statistics of a dataset
 - create a figure from data
 
-Outline 
-========================================================
-left: 40%
 
-**You should be able to...**
-- iterate a calculation
-- simulate populations based on an ODE
+**You will be able to...**
+- write a mathematical model in `R`
+- numerically solve model using `lsoda` from the package `deSolve`
+- graphically represent transmission dynamics
 
-*** 
+Agenda
+===
 
-**Topics**
   1. Modeling Concepts
   2. Review of functions
   3. Converting ODEs to R code
@@ -97,7 +97,7 @@ Key points from the reading
 ========================================================
 
 ```{r}
-FunctionName <- function(arguement1, arguement2, ...){
+FunctionName <- function(argument1, argument2, ...){
   #some analysis
   return(outputOfFunction)
 }
@@ -164,28 +164,28 @@ Use the `?` search function
 
  ![lsoda](figs/lsodaMan.png)
 
-lsoda arguements
+lsoda arguments
 ========================================================
 
 
-Take a few minutes to decide what do the first 4 arguements mean
+Take a few minutes to decide what do the first 4 arguments mean
 
 - y 
 - times
 - func
 - params
 
-lsoda arguements
+lsoda arguments
 ========================================================
 
-What do the first 4 arguements mean?
+What do the first 4 arguments mean?
 
 - y : Starting values for the state variable(s) 
 - times : times that you want the state variable(s) recorded
 - func : function describing how the state variable changes (Model)
 - params : parameter values used in the model 
 
-What are the special instructions for the func arguement?
+What are the special instructions for the func argument?
 
 
 func for lsoda

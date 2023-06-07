@@ -1,7 +1,7 @@
 Simulating infectious diseases with R
 ========================================================
-author: John Vinson
-date: June 3, 2019
+author: Daniel Suh
+date: 
 autosize: true
 font-import: https://fonts.googleapis.com/css?family=PT+Sans
 font-family: 'PT Sans', sans-serif;
@@ -14,21 +14,17 @@ font-family: 'PT Sans', sans-serif;
 About Myself
 ========================================================
 
- - My research interest is the disease-diversity relationship. 
+ - My research interest is the transmission of generalist parasites
  - I use `R` in my research to:
    + organize data 
-   + simulate population dynamics and data
-   + generate and visualize parameter spaces
- - I mostly work in theoretical systems.
- - My contact info is vinsonje@uga.edu (twitter: @futuredrvinson)
-
-Selected Publications (using R): 
-
-- Vinson, John E., John M. Drake, Pejman Rohani, and Andrew W. Park. 2016. “The Potential for Sexual Transmission to Compromise Control of Ebola Virus Outbreaks.” Biology Letters 12 (6). 
-
-- Fisher, Molly A., John E. Vinson, John L. Gittleman, and John M. Drake. 2018. “The Description and Number of Undiscovered Mammal Species.” Ecology and Evolution 8 (7): 3628–35.
+   + run simulations
+   + perform statistical analysis
+   + make websites
+   + write manuscripts
+ - I mostly work with mathematical models, large scale host-parasites association databases, and the daphnia model system.
+ - My contact info is daniel.suh@uga.edu
  
-Review of past workshops 
+Outline 
 ========================================================
 **You should be able to...**
 
@@ -38,17 +34,15 @@ Review of past workshops
 - calculate summary statistics of a dataset
 - create a figure from data
 
-Outline 
-========================================================
-left: 40%
 
-**You should be able to...**
-- iterate a calculation
-- simulate populations based on an ODE
+**You will be able to...**
+- write a mathematical model in `R`
+- numerically solve model using `lsoda` from the package `deSolve`
+- graphically represent transmission dynamics
 
-*** 
+Agenda
+===
 
-**Topics**
   1. Modeling Concepts
   2. Review of functions
   3. Converting ODEs to R code
@@ -101,7 +95,7 @@ Key points from the reading
 
 
 ```r
-FunctionName <- function(arguement1, arguement2, ...){
+FunctionName <- function(argument1, argument2, ...){
   #some analysis
   return(outputOfFunction)
 }
@@ -168,28 +162,28 @@ Use the `?` search function
 
  ![lsoda](figs/lsodaMan.png)
 
-lsoda arguements
+lsoda arguments
 ========================================================
 
 
-Take a few minutes to decide what do the first 4 arguements mean
+Take a few minutes to decide what do the first 4 arguments mean
 
 - y 
 - times
 - func
 - params
 
-lsoda arguements
+lsoda arguments
 ========================================================
 
-What do the first 4 arguements mean?
+What do the first 4 arguments mean?
 
 - y : Starting values for the state variable(s) 
 - times : times that you want the state variable(s) recorded
 - func : function describing how the state variable changes (Model)
 - params : parameter values used in the model 
 
-What are the special instructions for the func arguement?
+What are the special instructions for the func argument?
 
 
 func for lsoda
@@ -233,7 +227,6 @@ Explore the impact of the $\beta$ and $\gamma$ values on the size and duration o
 - What happens when $\gamma$ is increased? 
 - What happens when $\beta$ is increased? 
 - What happens when the ratio of is held constant but the absolute values change?
-- What is $R_0$? Can you derive this value for the model we've been using?
 
 Are the changes what you expected? How would changing $\gamma$ or $\beta$ impact $R_0$?
 

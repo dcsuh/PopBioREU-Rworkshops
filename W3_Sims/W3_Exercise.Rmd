@@ -321,7 +321,7 @@ The data is currently in wide format (ie. S, I, and R at a given time are all in
 
 
 Long format has a single observation per row. See this [blog post](
-https://sebastiansauerblog.wordpress.com/2016/07/13/long-vs-wide-format-and-gather/
+https://www.statology.org/pivot_longer-in-r/
 ) for more details. 
 
 Explore the `pivot_longer()` function. Once you have a handle on the `pivot_longer()` function make a new long format `longSIRsim` object and plot. 
@@ -345,7 +345,7 @@ How do the column names change between `SIRsim` and `longSIRsim`?
 ```{r fast SIR plot}
 
 SIRsim %>% 
-  gather(key = state, value = value, S:R) %>%  # the gathered data is fed directly into ggplot without creating a secondary object. 
+  pivot_longer(cols = S:R, names_to = "state", values_to = "value") %>%  # the pivoted data is fed directly into ggplot without creating a secondary object. 
   ggplot(data = ., aes(time, value, color = state)) + 
     geom_line()
 
