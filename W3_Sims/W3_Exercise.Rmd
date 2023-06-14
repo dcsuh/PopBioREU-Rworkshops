@@ -64,8 +64,8 @@ ExponentialGrowth <- function(t, y, params) {
   with(as.list(c(params)), { 
 
 #Complete the function to:
-    ## Right hand side of the differential equation
-    ## combine results into a single vector dx
+    dN <- r*N   ## Right hand side of the differential equation
+    dx <- c(dN) ## combine results into a single vector dx
 
     list(dx) # return list of results
     }
@@ -73,6 +73,9 @@ ExponentialGrowth <- function(t, y, params) {
 }  
 
 ```
+
+
+
 
 ## Other arguments for lsoda
 
@@ -94,7 +97,7 @@ Working backwards the next argument for `lsoda()` is `times`. The solver needs t
 
 *Remember: We can save time when making patterned vectors by using* `seq()` *function. If you are having trouble figuring out how to use the function you can view the help file with* `?seq`
 ```{r time}
-## t.vector <- seq()
+t.vector <- seq(0.1, 1, 0.1)
 ```
 
 
@@ -103,7 +106,7 @@ Working backwards the next argument for `lsoda()` is `times`. The solver needs t
 The initial condition of the state variable(s) is set by a named vector, just like the parameters values. Let's create a vector `y0` with an initial state value (N0) of 10.
 
 ```{r initial condition}
-## y0
+y0 <- c(N0 = 10)
 ```
 
 ## Run a simulation
@@ -111,15 +114,15 @@ The initial condition of the state variable(s) is set by a named vector, just li
 We now have a function called `ExponentialGrowth()` that describes the exponential growth model and the 3 required arguments for the `lsoda()` function. Let's simulate the population and save it as an object called `sim1` 
 
 ```{r exp population simulation}
-##sim1 <- lsoda(y = y0, times = , func = , parms = ) #complete the arguments
+sim1 <- lsoda(y = y0, times = t.vector, func = ExponentialGrowth, parms = parameters) #complete the arguments
 ```
 
 What is the population size at the end of the simulation? How would you expect it to change if the growth rate was decreased? Test it out by creating another simulated population named `sim2` with this new growth rate. 
 
 ```{r exp population sinulation low growth}
-##parameters2 <- c() # create a new vector for the params argument
+parameters2 <- c(r = 0.5) # create a new vector for the params argument
 
-##sim2 <- lsoda(y = y0, ) # complete the arguments 
+sim2 <- lsoda(y = y0, times = t.vector, func = ExponentialGrowth, parms = parameters2) # complete the arguments 
 ```
 
 ## Plot the simulation 
@@ -130,9 +133,7 @@ Try plotting `sim1` with time on the x-axis.
 
 ```{r sim1 plot,  error = TRUE}
 
-##ggplot(data = , aes(x = , y = )) +  geom_point() # complete the code with the appropriate data, and x-y aesthetics 
- 
-
+#ggplot(data = sim1, aes(x = time, y = 1)) +  geom_point() # complete the code with the appropriate data, and x-y aesthetics 
 ```
 
 You'll notice that this code returns an error instead of a plot. 
@@ -149,8 +150,9 @@ str(sim1) # use the `?` to look up the str() function
 The `ggplot()` function requires data in a data.frame. What is the current object class? Any ideas on how can we convert `sim1` and `sim2` to a data.frame?
 
 ```{r plotting exp model}
-sim1 <- as.data.frame(sim1) # convert sim1 to a data.frame for plotting  
-##sim2 <- as.data.frame()  # convert sim2 to a data.frame as well
+sim1 <- as.data.frame(sim1) # convert sim1 to a data.frame for plotting
+str(sim1)
+sim2 <- as.data.frame(sim2)  # convert sim2 to a data.frame as well
 
 # plot sim1 as points (from sim1 plot code chunk)
 ggplot(data = sim1, aes(x = time, y = N0)) + 
@@ -173,8 +175,8 @@ ggplot(data = sim1, aes(x = time, y = N0)) +
   geom_point() +
   geom_line() + 
  # we can add points and lines from sim2 by calling the sim2 data, and defining the aesthetic
-  ##geom_point(data = , aes( )) +  
-  ##geom_line(data = , aes( ))
+  geom_point(data = sim2, aes(x=time, y=N0 )) +  
+  geom_line(data = sim2, aes(x=time, y=N0 ))
 
 
 ```
